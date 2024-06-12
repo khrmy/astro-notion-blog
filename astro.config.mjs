@@ -41,4 +41,12 @@ export default defineConfig({
     FeaturedImageDownloader(),
     PublicNotionCopier(),
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "src/styles/_mixin.scss";`}
+      }
+    }
+  },
 });
