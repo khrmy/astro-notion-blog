@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import "@fontsource/rocknroll-one";
 import myProfileImage from `../images/profile.jpg`
 import { PUBLIC_GA_TRACKING_ID, ENABLE_LIGHTBOX } from '../server-constants.ts'
 import { getDatabase } from '../lib/notion/client.ts'
@@ -102,11 +103,6 @@ if (database.Icon && database.Icon.Type === 'file') {
 		<meta name="twitter:image" content={ogImage || siteOGImage}>
 		<!-- reset.css modern-css-reset -->
 		<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400,500&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=family=RocknRoll+One&display=swap" rel="stylesheet">
-
 	</head>
 	<body>
 		<GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
