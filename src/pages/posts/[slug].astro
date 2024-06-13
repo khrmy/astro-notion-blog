@@ -21,6 +21,7 @@ import PostDate from '../../components/PostDate.astro'
 import PostTags from '../../components/PostTags.astro'
 import PostTitle from '../../components/PostTitle.astro'
 import PostBody from '../../components/PostBody.astro'
+import PostFeaturedImage from '../../components/PostFeaturedImage.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import BlogPostsLink from '../../components/BlogPostsLink.astro'
 import BlogTagsLink from '../../components/BlogTagsLink.astro'
@@ -99,19 +100,30 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 	path={getPostLink(post.Slug)}
 	ogImage={ogImage}
 >
-	<div slot="main" class={styles.main}>
-		<div class={styles.post}>
-			<PostDate post={post} />
-			<PostTags post={post} />
-			<PostTitle post={post} enableLink={false} />
-			<PostBody blocks={blocks} />
-			<PostTags post={post} />
+		<div slot="main" class={styles.main}>
 
-			<footer>
-				<PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
-			</footer>
+			<div class="single">
+				<div class={styles.post}>
+					<article class="article">
+						<div class="mainimg">
+							<PostFeaturedImage post={post} />
+						</div>
+						<div class="entry">
+							<PostTitle post={post} enableLink={false} />
+							<div class="entry_meta">
+								<PostDate post={post} />
+								<PostTags post={post} />
+							</div>
+							<PostBody blocks={blocks} />
+						</div>
+					</article>
+
+					<footer>
+						<PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
+					</footer>
+				</div>
+			</div>
 		</div>
-	</div>
 
 	<div slot="aside" class="aside">
 		<BlogPostsLink
@@ -123,3 +135,26 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 		<BlogTagsLink tags={tags} />
 	</div>
 </Layout>
+
+<style lang="scss">
+	.single{
+		max-width:80%;
+		margin:0 auto;
+		@media #{$sp}{
+			max-width:auto;
+			max-width:initial;
+		}
+	}
+	.article{
+		background:$white;
+		margin:6% 0 0;
+		.entry{
+			padding:3% 5%;
+			.entry_meta{
+				display:flex;
+
+			}
+		}
+	}
+
+</style>

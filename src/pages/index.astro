@@ -8,13 +8,7 @@ import {
 } from '../lib/notion/client.ts'
 import Layout from '../layouts/Layout.astro'
 import NoContents from '../components/NoContents.astro'
-import PostDate from '../components/PostDate.astro'
-import PostTags from '../components/PostTags.astro'
-import PostTitle from '../components/PostTitle.astro'
-import PostFeaturedImage from '../components/PostFeaturedImage.astro'
-import PostExcerpt from '../components/PostExcerpt.astro'
 import ListPost from '../components/ListPost.astro'
-import ReadMoreLink from '../components/ReadMoreLink.astro'
 import Pagination from '../components/Pagination.astro'
 import BlogPostsLink from '../components/BlogPostsLink.astro'
 import BlogTagsLink from '../components/BlogTagsLink.astro'
@@ -26,6 +20,8 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
   getAllTags(),
   getNumberOfPages(),
 ])
+
+/*<div class={styles.post} key={post.Slug}> */
 ---
 
 <Layout>
@@ -38,7 +34,6 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 				posts.map((post) => (
 
 				<div class="post-wrapper" key={post.Slug}>
-				<!--<div class={styles.post} key={post.Slug}> -->
 					<ListPost post={post} />
 				</div>
 				))
