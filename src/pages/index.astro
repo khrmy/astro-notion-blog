@@ -13,6 +13,7 @@ import PostTags from '../components/PostTags.astro'
 import PostTitle from '../components/PostTitle.astro'
 import PostFeaturedImage from '../components/PostFeaturedImage.astro'
 import PostExcerpt from '../components/PostExcerpt.astro'
+import ListPost from '../components/ListPost.astro'
 import ReadMoreLink from '../components/ReadMoreLink.astro'
 import Pagination from '../components/Pagination.astro'
 import BlogPostsLink from '../components/BlogPostsLink.astro'
@@ -29,23 +30,21 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 
 <Layout>
 	<div slot="main" class={styles.main}>
+		<div class="list">
 		{
 			posts.length === 0 ? (
 				<NoContents contents={posts} />
 			) : (
 				posts.map((post) => (
-				<div class={styles.post} key={post.Slug}>
-					<PostDate post={post} />
-					<PostTags post={post} />
-					<PostTitle post={post} />
-					<PostFeaturedImage post={post} />
-					<PostExcerpt post={post} />
-					<ReadMoreLink post={post} />
+
+				<div class="post-wrapper" key={post.Slug}>
+				<!--<div class={styles.post} key={post.Slug}> -->
+					<ListPost post={post} />
 				</div>
-			))
+				))
 			)
 		}
-
+		</div>		
 
 		<footer>
 			<Pagination currentPage={1} numberOfPages={numberOfPages} />
@@ -56,3 +55,23 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 		<BlogTagsLink tags={tags} />
 	</div>
 </Layout>
+
+<style lang="scss">
+	.list{
+		padding: 6% 0;
+		display: flex;
+		flex-wrap:wrap;
+		.post-wrapper{
+			width: 31%;
+			margin:0 3% 5% 0;
+			display: flex;
+			&:nth-of-type(3n){
+				margin:0 0 5% 0;
+			}
+			@media #{$sp}{
+				width: 100%;
+				margin:0 0 5% 0;
+			}
+		}
+	}
+</style>
