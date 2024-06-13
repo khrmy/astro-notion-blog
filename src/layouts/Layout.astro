@@ -132,7 +132,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 				<Profile />
 				<div class="footer_bottom">
 					<div class="copyright">
-						<p>&copy; {　database.Title	}.</p>
+						<p>&copy; { database.Title	}.</p>
 					</div>
 					<div class="powerdby">
 						<span>Powered by&nbsp;</span>
@@ -161,6 +161,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 		justify-content:space-between;
 		align-items:center;
 		background:$lightgray;
+		z-index:500;
 		@media #{$sp} {
 			padding:3% $spsize;
 		}
