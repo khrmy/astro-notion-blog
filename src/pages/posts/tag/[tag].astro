@@ -38,7 +38,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag)
 	<div slot="main" class={styles.main}>
 		<header>
 			<h1>
-				<span>{tag}</span>
+				<span class={`h1tag ${currentTag.color}`}>{tag}</span>
 			</h1>
 		</header>
 		<div class="list">
