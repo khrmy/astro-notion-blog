@@ -52,11 +52,11 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 	  )
 	}
 	</div>	
-	<footer>
-	  <Pagination
+	<footer class="pagination">
+		<Pagination
 		currentPage={parseInt(page, 10)}
 		numberOfPages={numberOfPages}
-	  />
+		/>
 	</footer>
   </div>
 
@@ -87,5 +87,8 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 				margin:0 0 5% 0;
 			}
 		}
+	}
+	footer.pagination{
+		padding:4% 0;
 	}
 </style>
