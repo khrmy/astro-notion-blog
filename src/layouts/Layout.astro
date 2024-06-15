@@ -134,7 +134,7 @@ if (database.Icon && database.Icon.Type === 'file') {
 					<div class="copyright">
 						<p>&copy; { database.Title	}.</p>
 					</div>
-					<div class="powerdby">
+					<div class="poweredby">
 						<span>Powered by&nbsp;</span>
 						<a href="https://github.com/otoyo/astro-notion-blog" target="_blank">astro-notion-blog</a>
 					</div>
@@ -188,6 +188,9 @@ if (database.Icon && database.Icon.Type === 'file') {
 			font-size:12px;
 			display:flex;
 			justify-content:space-between;
+			.poweredby a{
+				color:#0969da;
+			}
 		}
 
 	}
@@ -214,7 +217,6 @@ if (database.Icon && database.Icon.Type === 'file') {
 		max-width: 100%;
 		width: auto;
 		height: auto;
-		vertical-align: bottom;
 	}
 	@media #{$pc} {
 		a[href^="tel:"] {
