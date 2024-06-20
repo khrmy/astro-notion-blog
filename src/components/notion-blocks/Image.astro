@@ -17,38 +17,106 @@ if (block.Image.External) {
   image = filePath(new URL(block.Image.File.Url))
 }
 ---
-
+<h3>【画像の装飾パターン】</h3>
+・通常<br>
 <figure class="image">
   {
-    image && (
-      <div>
-        <div>
-          {ENABLE_LIGHTBOX ? (
-            <a data-fslightbox href={image} data-type="image">
-              <img src={image} alt="Image in a image block" loading="lazy" />
-            </a>
-          ) : (
-            <img src={image} alt="Image in a image block" loading="lazy" />
-          )}
-        </div>
-        <Caption richTexts={block.Image.Caption} />
-      </div>
-    )
+	image && (
+	  <div>
+		<div>
+		  {ENABLE_LIGHTBOX ? (
+			<a data-fslightbox href={image} data-type="image">
+			  <img src={image} alt="Image in a image block" loading="lazy" />
+			</a>
+		  ) : (
+			<img src={image} alt="Image in a image block" loading="lazy" />
+		  )}
+		</div>
+		<Caption richTexts={block.Image.Caption} />
+	  </div>
+	)
+  }
+</figure>
+<br>
+・写真の縁<br>
+<figure class="image1">
+  {
+	image && (
+	  <div>
+		<div>
+		  {ENABLE_LIGHTBOX ? (
+			<a data-fslightbox href={image} data-type="image">
+			  <img src={image} alt="Image in a image block" loading="lazy" />
+			</a>
+		  ) : (
+			<img src={image} alt="Image in a image block" loading="lazy" />
+		  )}
+		</div>
+		<Caption richTexts={block.Image.Caption} />
+	  </div>
+	)
+  }
+</figure>
+<br>
+・ポップな影<br>
+<figure class="image2">
+  {
+	image && (
+	  <div>
+		<div>
+		  {ENABLE_LIGHTBOX ? (
+			<a data-fslightbox href={image} data-type="image">
+			  <img src={image} alt="Image in a image block" loading="lazy" />
+			</a>
+		  ) : (
+			<img src={image} alt="Image in a image block" loading="lazy" />
+		  )}
+		</div>
+		<Caption richTexts={block.Image.Caption} />
+	  </div>
+	)
   }
 </figure>
 
-<style>
+<style lang="scss">
+.image1{
+	img{
+		padding:10px; 
+		border:1px solid #cecece;
+		border-radius:2px;
+		box-shadow:3px 3px 6px #eee;
+	}
+}
+.image2 div div{
+	width: 96%;
+	position: relative;
+	z-index:5;
+	&:after{
+		content: "";
+		width: 100%;
+		height: 100%;
+		background-image: radial-gradient(#00aec9 30%, rgba(0, 174, 201, 0) 31%), radial-gradient(#00aec9 30%, rgba(0, 174, 201, 0) 31%);
+		background-size: 8px 8px;
+		background-position: 0 0, 4px 4px;
+		position: absolute;
+		bottom: -4%;
+		right: -3%;
+		z-index: -1;
+	}
+}
+
   .image {
-    display: flex;
-    margin: 0.2rem auto 0;
+	display: flex;
+	margin: 0.2rem auto 0;
   }
   .image > div {
-    margin: 0 auto;
+	margin: 0 auto;
   }
   .image > div > div {
   }
   .image > div > div img {
-    display: block;
-    max-width: 100%;
+	display: block;
+	max-width: 100%;
   }
+
 </style>
