@@ -20,7 +20,7 @@ const { prevPost, nextPost } = Astro.props
 		{
 			prevPost && (
 			<a href={getPostLink(prevPost.Slug)} class="colored">
-				<div>◀︎ {prevPost.Title}</div>
+				<div><span class="icon"><svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve"><g><path d="M469.672,213.675H145.324L275.68,84.727c16.623-16.438,16.767-43.253,0.329-59.866 c-16.438-16.624-43.243-16.767-59.867-0.328L12.566,225.901C4.52,233.863,0,244.691,0,256.003c0,11.312,4.52,22.13,12.566,30.093 l203.576,201.368c16.624,16.438,43.428,16.304,59.867-0.33c16.438-16.613,16.294-43.417-0.329-59.855L145.324,298.322h324.347 c23.374,0,42.328-18.945,42.328-42.319C512,232.62,493.045,213.675,469.672,213.675z" ></path></g></svg></span><span class="postlink">{prevPost.Title}</span></div>
 			</a>
 			)
 		}
@@ -31,8 +31,8 @@ const { prevPost, nextPost } = Astro.props
 	<div class="next-post">
 		{
 			nextPost && (
-			<a href={getPostLink(nextPost.Slug)} class="colored">
-				<div>{nextPost.Title} ▶︎</div>
+			<a href={getPostLink(nextPost.Slug)}>
+				<div><span class="postlink">{nextPost.Title}</span><span class="icon"><svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve"><g><path class="st0" d="M499.436,225.905L295.858,24.536c-16.623-16.438-43.428-16.305-59.866,0.328 c-16.438,16.613-16.294,43.418,0.329,59.856l130.356,128.958H42.329C18.956,213.679,0,232.624,0,255.997 c0,23.383,18.956,42.328,42.329,42.328h324.347L236.321,427.273c-16.623,16.438-16.767,43.254-0.329,59.867 c16.438,16.622,43.243,16.766,59.866,0.328l203.578-201.368c8.044-7.963,12.564-18.792,12.564-30.102 C512,244.685,507.479,233.866,499.436,225.905z"></path></g></svg></span></div>
 				
 			</a>
 			)
@@ -43,7 +43,7 @@ const { prevPost, nextPost } = Astro.props
 
 <style lang="scss">
 	.post-relative-link{
-		padding: 3% 0;
+		padding: 6% 0;
 		display: flex;
 		justify-content: space-between;
 		@media #{$sp}{
@@ -54,21 +54,69 @@ const { prevPost, nextPost } = Astro.props
 			display: block;
 			width: 100%;
 			font-size: 14px;
-			color:$linkcolor_base;
 			color:$textcolor_base;
+			font-weight:bold;
+			&:hover{
+				text-decoration: none;
+				color:$noimage;
+			}
+			div{
+				display: flex;
+				align-items:center;
+				justify-content: space-between;
+				span.icon{
+					width: 12%;
+					border-radius:50%;
+					background-color: #f0ff49;
+					aspect-ratio: 1/1;
+					display:flex;
+					align-items: center;
+					justify-content: center;
+					transition:all 0.3s ease;			
+					svg{
+						width: 30%;
+						height:auto;
+						path{
+							fill:#333;
+							transition:all 0.3s ease;
+						}
+					}
+					@media #{$sp}{
+						width: 8%;
+					}
+				}
+				span.postlink{
+					width: 82%;
+					@media #{$sp}{
+						width: 90%;
+					}
+				}
+			}
+			&:hover{
+				div{
+					span.icon{
+						background-color: $noimage;
+						svg{
+							path{
+								fill:#fff;
+							}
+						}
+					}
+				}
+			}
 		}
 		.prev-post{
 			width: 40%;
 			text-align: left;
-			display: flex;
 			@media #{$sp}{
 				width:100%;
 			}
 		}
 		.goback{
-			width: 28%;
+			width: 26%;
 			text-align: center;
 			display: flex;
+			align-items:center;
 			@media #{$sp}{
 				width:100%;
 				padding:3% 0;
@@ -89,7 +137,6 @@ const { prevPost, nextPost } = Astro.props
 		.next-post{
 			width: 40%;
 			text-align: right;
-			display: flex;
 			@media #{$sp}{
 				width:100%;
 			}
