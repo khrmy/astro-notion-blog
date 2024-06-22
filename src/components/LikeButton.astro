@@ -6,8 +6,7 @@ export interface Props {
 const { post } = Astro.props
 ---
 <div class="like_this">
-	<p>この記事を読んだら押してね！</p>
-	<button class="like-button" data-slug={post.Slug}><span class="icon">☆</span><span class="text">0</span></button>
+	<button class="like-button" data-slug={post.Slug}><span class="icon">☆</span><span class="text">いいね 0</span></button>
 </div>
 <style lang="scss">
 	.like_this{
@@ -50,7 +49,7 @@ const { post } = Astro.props
 	}
 
 	const { likes } = await res.json()
-	buttontext.textContent = `${likes}`
+	buttontext.textContent = `いいね ${likes}`
 
 	button.addEventListener('click', async () => {
 	  const res = await fetch(url, { method: 'POST' })
@@ -59,7 +58,7 @@ const { post } = Astro.props
 	  }
 
 	  const { likes } = await res.json()
-	  buttontext.textContent = `読んだよ！ ${likes}`
+	  buttontext.textContent = `いいね ${likes}`
 	  buttonicon.textContent = `★`
 	})
   })
