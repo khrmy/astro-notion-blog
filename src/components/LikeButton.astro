@@ -6,7 +6,7 @@ export interface Props {
 const { post } = Astro.props
 ---
 <div class="like_this">
-	<button class="like-button" data-slug={post.Slug}><span class="icon">☆</span><span class="text">いいね 0</span></button>
+	<button class="like-button" data-slug={post.Slug}><span class="icon">☆</span><span class="text">いいね！ 0</span></button>
 </div>
 <style lang="scss">
 	.like_this{
@@ -29,8 +29,6 @@ const { post } = Astro.props
 			&:hover{
 				background-color: #ffeff2;
 			}
-
-
 		}
   
  	}
