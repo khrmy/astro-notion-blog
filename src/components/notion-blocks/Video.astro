@@ -29,7 +29,6 @@ try {
 } catch (err) {
 	console.log(err)
 }
-
 ---
 
 <div class="video">
@@ -44,7 +43,7 @@ try {
 					allowfullscreen
 				/>
 			) : (
-				<video controls src={filePath(url)}></video>
+				<video controls src={`${filePath(url)}#t=0.001`}></video>
 			)
 		}		
 			
