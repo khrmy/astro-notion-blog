@@ -22,6 +22,7 @@
     "@notionhq/client": "^2.2.5",
     "@supercharge/promise-pool": "^2.4.0",
     "astro": "^3.3.1",
+    "astro-aws-amplify": "^0.1.0",
     "astro-icon": "^0.8.1",
     "async-retry": "^1.3.3",
     "axios": "^1.4.0",
@@ -35,10 +36,11 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.32.4",
-    "sass": "^1.77.5"
+    "sass": "^1.77.5",
+    "sharp": "^0.32.4"
   },
   "devDependencies": {
+    "@fontsource/rocknroll-one": "^5.0.14",
     "@nrwl/nx-cloud": "^15.0.2",
     "@types/async-retry": "^1.4.5",
     "@types/js-base64": "^3.3.1",
@@ -51,7 +53,6 @@
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@typescript-eslint/typescript-estree": "^6.8.0",
-    "@fontsource/rocknroll-one":"^5.0.14",
     "cli-progress": "^3.12.0",
     "eslint": "^8.51.0",
     "eslint-plugin-astro": "^0.27.0",
