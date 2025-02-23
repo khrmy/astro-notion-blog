@@ -47,12 +47,14 @@ export default defineConfig({
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: `@import "src/styles/_mixin.scss";`}
+					additionalData: `@import "src/styles/_mixin.scss";`
+				}
 			}
 		},
 		// https://qiita.com/otohusan/items/d75e6141eedab5572e19
+		//https://zenn.dev/kagunyan25/scraps/f0ed3f1a40e045
 		ssr: {
-			noExternal: ["react-icons" ],
+			noExternal: ["zwitch", ],
 		}
 	},
 	output: 'server',
