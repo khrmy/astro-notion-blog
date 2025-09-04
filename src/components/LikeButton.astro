@@ -6,8 +6,12 @@ export interface Props {
 const { post } = Astro.props
 ---
 <div class="like_this">
-	<button class="like-button" data-slug={post.Slug}><span class="icon">☆</span><span class="text">いいね！ 0</span></button>
+	<button class="like-button" data-slug={post.Slug}>
+		<span class="icon">☆</span>
+		<span class="text">いいね！ 0</span>
+	</button>
 </div>
+
 <style lang="scss">
 	.like_this{
 		padding: 6% 3%;
@@ -30,35 +34,30 @@ const { post } = Astro.props
 				background-color: #ffeff2;
 			}
 		}
-  
- 	}
+	}
 </style>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', async () => {
-	const button = document.querySelector('.like-button')
-	const buttontext = document.querySelector('.like-button span.text')
-	const buttonicon = document.querySelector('.like-button span.icon')
-	const slug = button.dataset.slug
-	const url = `/api/likes.json?slug=${slug}`
+<script>
+  const button = document.querySelector('.like-button')
+  if (button) {
+    const buttontext = button.querySelector('span.text')
+    const buttonicon = button.querySelector('span.icon')
+    const slug = button.dataset.slug
+    const url = `/api/likes.json?slug=${slug}`
 
-	const res = await fetch(url)
-	if (res.status !== 200) {
-	  throw new Error('Failed to like get')
-	}
+    const res = await fetch(url)
+    if (res.ok) {
+      const { likes } = await res.json()
+      buttontext.textContent = `いいね ${likes}`
+    }
 
-	const { likes } = await res.json()
-	buttontext.textContent = `いいね ${likes}`
-
-	button.addEventListener('click', async () => {
-	  const res = await fetch(url, { method: 'POST' })
-	  if (res.status !== 200) {
-		throw new Error('Failed to like post')
-	  }
-
-	  const { likes } = await res.json()
-	  buttontext.textContent = `いいね ${likes}`
-	  buttonicon.textContent = `★`
-	})
-  })
+    button.addEventListener('click', async () => {
+      const res = await fetch(url, { method: 'POST' })
+      if (res.ok) {
+        const { likes } = await res.json()
+        buttontext.textContent = `いいね ${likes}`
+        buttonicon.textContent = `★`
+      }
+    })
+  }
 </script>
