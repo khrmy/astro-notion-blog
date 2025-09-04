@@ -1,0 +1,22 @@
+[NX Daemon Server] - 2025-09-04T02:17:56.894Z - Started listening on: /private/var/folders/s3/kk2glf75071800fd4dw52sbh0000gn/T/56acfeeb1fb65211e1dd/d.sock
+[NX Daemon Server] - 2025-09-04T02:17:56.896Z - [WATCHER]: Subscribed to changes within: /Applications/MAMP/htdocs/work/astro-notion-blog (native)
+[NX Daemon Server] - 2025-09-04T02:17:56.898Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-09-04T02:17:56.898Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-09-04T02:17:56.899Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-09-04T02:17:56.900Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-09-04T02:17:56.901Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-09-04T02:17:56.901Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-09-04T02:17:56.901Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-09-04T02:17:56.901Z - [WATCHER]: Stopping the watcher for /Applications/MAMP/htdocs/work/astro-notion-blog (sources)
+[NX Daemon Server] - 2025-09-04T02:17:56.902Z - [WATCHER]: Stopping the watcher for /Applications/MAMP/htdocs/work/astro-notion-blog (outputs)
+[NX Daemon Server] - 2025-09-04T02:21:57.546Z - Started listening on: /private/var/folders/s3/kk2glf75071800fd4dw52sbh0000gn/T/56acfeeb1fb65211e1dd/d.sock
+[NX Daemon Server] - 2025-09-04T02:21:57.554Z - [WATCHER]: Subscribed to changes within: /Applications/MAMP/htdocs/work/astro-notion-blog (native)
+[NX Daemon Server] - 2025-09-04T02:21:57.560Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-09-04T02:21:57.561Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-09-04T02:21:57.562Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-09-04T02:21:57.562Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-09-04T02:21:57.563Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-09-04T02:21:57.563Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-09-04T02:21:57.567Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-09-04T02:21:57.567Z - [WATCHER]: Stopping the watcher for /Applications/MAMP/htdocs/work/astro-notion-blog (sources)
+[NX Daemon Server] - 2025-09-04T02:21:57.568Z - [WATCHER]: Stopping the watcher for /Applications/MAMP/htdocs/work/astro-notion-blog (outputs)
