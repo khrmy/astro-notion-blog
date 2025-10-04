@@ -1,7 +1,7 @@
 ---
 import { ENABLE_LIGHTBOX } from '../../server-constants.ts'
 import * as interfaces from '../../lib/interfaces'
-//import { filePath } from '../../lib/blog-helpers'
+import { filePath } from '../../lib/blog-helpers'
 import Caption from './Caption.astro'
 
 export interface Props {
@@ -14,8 +14,8 @@ let image = ''
 if (block.Image.External) {
   image = block.Image.External.Url
 } else if (block.Image.File) {
-  //image = filePath(new URL(block.Image.File.Url))
-  image = block.Image.File.Url
+  image = filePath(new URL(block.Image.File.Url))
+  //image = block.Image.File.Url
 }
 ---
 <figure class="image1">
@@ -25,10 +25,10 @@ if (block.Image.External) {
 		<div>
 		  {ENABLE_LIGHTBOX ? (
 			<a data-fslightbox href={image} data-type="image">
-			  <img src={image} alt="Image in a image block" loading="lazy" />
+			  <img src={image} alt="ドロップの画像" loading="lazy" />
 			</a>
 		  ) : (
-			<img src={image} alt="Image in a image block" loading="lazy" />
+			<img src={image} alt="ドロップの画像" loading="lazy" />
 		  )}
 		</div>
 		<Caption richTexts={block.Image.Caption} />
@@ -36,27 +36,6 @@ if (block.Image.External) {
 	)
   }
 </figure>
-<!--br>
-・ポップな影<br>
-<figure class="image2">
-  {
-	image && (
-	  <div>
-		<div>
-		  {ENABLE_LIGHTBOX ? (
-			<a data-fslightbox href={image} data-type="image">
-			  <img src={image} alt="Image in a image block" loading="lazy" />
-			</a>
-		  ) : (
-			<img src={image} alt="Image in a image block" loading="lazy" />
-		  )}
-		</div>
-		<Caption richTexts={block.Image.Caption} />
-	  </div>
-	)
-  }
-</figure>
--->
 <style lang="scss">
 .image1{
 	margin:0 0 3%;
